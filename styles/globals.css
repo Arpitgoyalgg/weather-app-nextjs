@@ -1,16 +1,157 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+html {
+  font-family: "Lexend", sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.left-part hr {
+  width: 50%;
+  margin: 25px 25px 25px 0px;
 }
 
-* {
-  box-sizing: border-box;
+.left-part img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  height: auto;
+}
+
+.left-part h4 {
+  margin: 10px;
+}
+.right-part {
+  float: right;
+  background-color: #f7f6f5;
+  /* height: auto; */
+  width: 70%;
+  position: relative;
+  /* border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px; */
+}
+
+input {
+  border: white;
+}
+
+.right-part h2 {
+  margin-left: 70px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-decoration: und;
+}
+
+.small-card-container {
+  display: flex;
+  margin-left: 60px;
+  flex-flow: row wrap;
+}
+
+.big-card-container {
+  display: flex;
+  margin-left: 50px;
+  margin-top: 5px;
+  flex-flow: row wrap;
+}
+.small-card {
+  background-color: white;
+  width: 100px;
+  height: 120px;
+  border-radius: 25px;
+  margin: 6px;
+  text-align: center;
+}
+
+.small-card img {
+  width: 50%;
+  height: auto;
+  margin: 15px;
+}
+
+.small-card h3,
+h4 {
+  margin: auto;
+  font-size: small;
+}
+
+.small-card .temp {
+  display: flex;
+}
+
+.big-card {
+  background-color: white;
+  width: 235px;
+  height: 180px;
+  border-radius: 25px;
+  margin: 10px;
+}
+
+.big-card h3 {
+  margin: 25px;
+}
+
+.temp .min-temp {
+  color: gray;
+}
+
+.unit-widget {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+}
+
+.c-widget {
+  width: 10px;
+  margin-left: 20px;
+  padding: 3px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+}
+
+.f-widget {
+  width: 10px;
+  margin: 5px;
+  padding: 3px;
+  font-weight: bold;
+  border-radius: 50%;
+  background-color: white;
+  font-size: 15px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 1150px) {
+  .left-part {
+    float: left;
+    background-color: white;
+    width: 30%;
+    /* border-radius: 40px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+    left: 50px;
+    position: fixed;
+  }
+
+  .search-box {
+    margin: 5px;
+    padding: 10px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 1150px) {
+  .left-part {
+    float: left;
+    background-color: white;
+    width: 30%;
+    /* border-radius: 40px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+    position: fixed;
+    left: 100px;
+  }
+
+  .search-box {
+    margin: 10px;
+    padding: 10px;
+  }
 }
