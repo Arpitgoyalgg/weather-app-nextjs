@@ -12,7 +12,7 @@ export default function WeekWeather(props) {
     var weekday = new Array(7);
     weekday[0] = "Sun";
     weekday[1] = "Mon";
-    weekday[2] = "Tues";
+    weekday[2] = "Tue";
     weekday[3] = "Wed";
     weekday[4] = "Thu";
     weekday[5] = "Fri";
@@ -34,10 +34,10 @@ export default function WeekWeather(props) {
   return (
     <>
       <h2>Today and Next 7 Days</h2>
-      <div className="unit-widget">
+      {/* <div className="unit-widget">
         <span className="c-widget">&#176;C</span>
         <span className="f-widget">&#176;F</span>
-      </div>
+      </div> */}
 
       <div className="small-card-container">{listDays}</div>
     </>
