@@ -93,6 +93,10 @@ h4 {
   margin: 25px;
 }
 
+.big-card h1 {
+  margin: 35px;
+}
+
 .temp .min-temp {
   color: gray;
 }

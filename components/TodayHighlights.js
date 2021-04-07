@@ -1,26 +1,21 @@
-export default function TodayHightlights() {
+import UvIndex from "./UvIndex";
+import WindStatus from "./WindStatus";
+import SunriseSunset from "./SunriseSunset";
+import Humidity from "./Humidity.js";
+import Visibility from "./Visibility";
+import AirQuality from "./AirQuality";
+
+export default function TodayHightlights(props) {
   return (
     <>
       <h2>Today's Hightlights</h2>
       <div className="big-card-container">
-        <div className="big-card">
-          <h3>UV Index</h3>
-        </div>
-        <div className="big-card">
-          <h3>Wind Status</h3>
-        </div>
-        <div className="big-card">
-          <h3>Sunrise and Sunset</h3>
-        </div>
-        <div className="big-card">
-          <h3>Humidity</h3>
-        </div>
-        <div className="big-card">
-          <h3>Visibility</h3>
-        </div>
-        <div className="big-card">
-          <h3>Air Quality</h3>
-        </div>
+        <UvIndex />
+        <WindStatus windSpeed={props.windSpeed} />
+        <SunriseSunset />
+        <Humidity />
+        <Visibility />
+        <AirQuality />
       </div>
     </>
   );

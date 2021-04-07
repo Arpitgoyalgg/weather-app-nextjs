@@ -40,6 +40,7 @@ export default function Home({ data }) {
   // logic for WeekWeather Component
 
   let weekWeatherData = data.daily;
+  let windSpeed = Math.round(data.current.wind_speed * 3.6 * 100) / 100;
 
   return (
     <>
@@ -58,7 +59,7 @@ export default function Home({ data }) {
       />
       <div className="right-part">
         <WeekWeather props={weekWeatherData} />
-        <TodayHightlights />
+        <TodayHightlights windSpeed={windSpeed} />
       </div>
     </>
   );
