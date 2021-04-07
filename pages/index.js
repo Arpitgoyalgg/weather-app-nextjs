@@ -52,6 +52,7 @@ export default function Home({ data }) {
   let weekWeatherData = data.daily;
   let windSpeed = Math.round(data.current.wind_speed * 3.6 * 100) / 100;
   let uvIndex = data.current.uvi;
+  let humidity = data.current.humidity;
 
   return (
     <>
@@ -75,6 +76,7 @@ export default function Home({ data }) {
           uvIndex={uvIndex}
           sunrise={sunrise}
           sunset={sunset}
+          humidity={humidity}
         />
       </div>
     </>
