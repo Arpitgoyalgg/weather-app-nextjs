@@ -3,7 +3,7 @@ import TodayHightlights from "../components/TodayHighlights";
 import TodayWeather from "../components/TodayWeather";
 import WeekWeather from "../components/WeekWeather";
 
-export default function Home({ data }) {
+export default function Home({ data, airData }) {
   console.log(data);
   const currentTemperature = data.current.temp;
   let unix_timestamp_live = data.current.dt; // + data.timezone_offset;
@@ -54,6 +54,11 @@ export default function Home({ data }) {
   let uvIndex = data.current.uvi;
   let humidity = data.current.humidity;
   let visibility = data.current.visibility;
+  let aqi = airData.list[0].main.aqi;
+
+  console.log("Air Data");
+  console.log(airData);
+  console.log("Air Data");
 
   return (
     <>
@@ -79,6 +84,7 @@ export default function Home({ data }) {
           sunset={sunset}
           humidity={humidity}
           visibility={visibility}
+          aqi={aqi}
         />
       </div>
     </>
@@ -88,16 +94,38 @@ export default function Home({ data }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch(
-    "https://api.openweathermap.org/data/2.5/onecall?lat=26.922070&lon=75.778885&exclude=hourly,minutely&appid=1a45ac851c6f2ce4a4f16f5c997ba14d&units=metric"
-  );
-  const data = await res.json();
+  const [data, airData] = await Promise.all([
+    fetch(
+      `https://api.openweathermap.org/data/2.5/onecall?lat=26.922070&lon=75.778885&exclude=hourly,minutely&appid=1a45ac851c6f2ce4a4f16f5c997ba14d&units=metric`
+    ).then((r) => r.json()),
+    fetch(
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=26.922070&lon=75.778885&appid=1a45ac851c6f2ce4a4f16f5c997ba14d`
+    ).then((r) => r.json()),
+  ]);
 
   // By returning { props: { posts } }, the Home component
   // will receive `data` as a prop at build time
   return {
     props: {
-      data,
+      data: data,
+      airData: airData,
     },
   };
 }
+
+// export async function getStaticPropsAir() {
+//   // Call an external API endpoint to get posts.
+//   // You can use any data fetching library
+//   const res = await fetch(
+//     "http://api.openweathermap.org/data/2.5/air_pollution?lat=26.922070&lon=75.778885&appid=1a45ac851c6f2ce4a4f16f5c997ba14d"
+//   );
+//   const airData = await res.json();
+
+//   // By returning { props: { posts } }, the Home component
+//   // will receive `data` as a prop at build time
+//   return {
+//     props: {
+//       airData,
+//     },
+//   };
+// }
