@@ -37,6 +37,10 @@ export default function Home({ data }) {
   var currentTime = hours + ":" + minutes.substr(-2);
   var currentLook = data.current.weather[0].description;
 
+  // logic for WeekWeather Component
+
+  let weekWeatherData = data.daily;
+
   return (
     <>
       <Head>
@@ -53,7 +57,7 @@ export default function Home({ data }) {
         currentLook={currentLook}
       />
       <div className="right-part">
-        <WeekWeather />
+        <WeekWeather props={weekWeatherData} />
         <TodayHightlights />
       </div>
     </>
@@ -75,34 +79,4 @@ export async function getStaticProps() {
       data,
     },
   };
-}
-
-function logic({ data }) {
-  const currentTemperature = data.current.temp;
-  let unix_timestamp = data.current.dt + data.timezone_offset;
-  var date = new Date(unix_timestamp * 1000);
-  // Hours part from the timestamp
-  var hours = date.getHours();
-  // Minutes part from the timestamp
-  var minutes = "0" + date.getMinutes();
-  // Seconds part from the timestamp
-  var seconds = "0" + date.getSeconds();
-
-  // Will display time in 10:30:23 format
-  var formattedTime =
-    hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
-
-  var weekday = new Array(7);
-  weekday[0] = "Sunday";
-  weekday[1] = "Monday";
-  weekday[2] = "Tuesday";
-  weekday[3] = "Wednesday";
-  weekday[4] = "Thursday";
-  weekday[5] = "Friday";
-  weekday[6] = "Saturday";
-
-  var day = weekday[date.getDay()];
-
-  const currrentDay = day;
-  const currentTime = hours + ":" + minutes.substr(-2);
 }
