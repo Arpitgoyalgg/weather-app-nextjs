@@ -41,6 +41,7 @@ export default function Home({ data }) {
 
   let weekWeatherData = data.daily;
   let windSpeed = Math.round(data.current.wind_speed * 3.6 * 100) / 100;
+  let uvIndex = data.current.uvi;
 
   return (
     <>
@@ -59,7 +60,7 @@ export default function Home({ data }) {
       />
       <div className="right-part">
         <WeekWeather props={weekWeatherData} />
-        <TodayHightlights windSpeed={windSpeed} />
+        <TodayHightlights windSpeed={windSpeed} uvIndex={uvIndex} />
       </div>
     </>
   );

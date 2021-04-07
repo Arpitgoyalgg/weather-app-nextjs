@@ -1,6 +1,13 @@
 import GaugeChart from "react-gauge-chart";
 
-export default function UvIndex() {
+export default function UvIndex(props) {
+  console.log(props.UvIndex);
+  let uvIndex = props.UvIndex;
+  if (uvIndex > 10) {
+    uvIndex = 1;
+  } else {
+    uvIndex = uvIndex / 10;
+  }
   return (
     <>
       <div className="big-card">
@@ -10,10 +17,11 @@ export default function UvIndex() {
           nrOfLevels={420}
           arcsLength={[0.3, 0.3, 0.4]}
           colors={["#5BE12C", "#F5CD19", "#EA4228"]}
-          percent={0.37}
+          percent={uvIndex}
           arcPadding={0.02}
           textColor="#000000"
           needleColor="#F89533"
+          formatTextValue={(value) => value + ""}
         />
       </div>
     </>
