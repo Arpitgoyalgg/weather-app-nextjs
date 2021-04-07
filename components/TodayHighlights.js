@@ -12,7 +12,7 @@ export default function TodayHightlights(props) {
       <div className="big-card-container">
         <UvIndex UvIndex={props.uvIndex} />
         <WindStatus windSpeed={props.windSpeed} />
-        <SunriseSunset />
+        <SunriseSunset sunrise={props.sunrise} sunset={props.sunset} />
         <Humidity />
         <Visibility />
         <AirQuality />

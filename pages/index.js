@@ -6,20 +6,25 @@ import WeekWeather from "../components/WeekWeather";
 export default function Home({ data }) {
   console.log(data);
   const currentTemperature = data.current.temp;
-  let unix_timestamp = data.current.dt; // + data.timezone_offset;
-  console.log(unix_timestamp);
-  var date = new Date(unix_timestamp * 1000);
-  console.log(date);
-  // Hours part from the timestamp
-  var hours = date.getHours();
-  // Minutes part from the timestamp
-  var minutes = "0" + date.getMinutes();
-  // Seconds part from the timestamp
-  var seconds = "0" + date.getSeconds();
+  let unix_timestamp_live = data.current.dt; // + data.timezone_offset;
+  let unix_timestamp_sunrise = data.current.sunrise;
+  let unix_timestamp_sunset = data.current.sunset;
 
-  // // Will display time in 10:30:23 format
-  // var formattedTime =
-  //   hours + ":" + minutes.substr(-2) + ":" + seconds.substr(-2);
+  var dateForLiveTime = new Date(unix_timestamp_live * 1000);
+  var dateForSunrise = new Date(unix_timestamp_sunrise * 1000);
+  var dateForSunset = new Date(unix_timestamp_sunset * 1000);
+
+  var hoursLive = dateForLiveTime.getHours();
+
+  var minutesLive = "0" + dateForLiveTime.getMinutes();
+
+  var hoursSunrise = dateForSunrise.getHours();
+
+  var minutesSunrise = "0" + dateForSunrise.getMinutes();
+
+  var hoursSunset = dateForSunset.getHours();
+
+  var minutesSunset = "0" + dateForSunset.getMinutes();
 
   var weekday = new Array(7);
   weekday[0] = "Sunday";
@@ -30,11 +35,16 @@ export default function Home({ data }) {
   weekday[5] = "Friday";
   weekday[6] = "Saturday";
 
-  var day = weekday[date.getDay()];
+  var currentDay = weekday[dateForLiveTime.getDay()];
 
-  var currentDay = day;
-  console.log(currentDay);
-  var currentTime = hours + ":" + minutes.substr(-2);
+  // var currentDayLive = dayLive;
+  // var currentDaySunrise = daySunrise;
+  // var currentDaySunset = daySunset;
+
+  var currentTime = hoursLive + ":" + minutesLive.substr(-2);
+  var sunrise = hoursSunrise + ":" + minutesSunrise.substr(-2);
+  var sunset = hoursSunset + ":" + minutesSunset.substr(-2);
+
   var currentLook = data.current.weather[0].description;
 
   // logic for WeekWeather Component
@@ -60,7 +70,12 @@ export default function Home({ data }) {
       />
       <div className="right-part">
         <WeekWeather props={weekWeatherData} />
-        <TodayHightlights windSpeed={windSpeed} uvIndex={uvIndex} />
+        <TodayHightlights
+          windSpeed={windSpeed}
+          uvIndex={uvIndex}
+          sunrise={sunrise}
+          sunset={sunset}
+        />
       </div>
     </>
   );
