@@ -17,6 +17,11 @@ html {
 .left-part h4 {
   margin: 10px;
 }
+
+.capatalize {
+  text-transform: capitalize;
+}
+
 .right-part {
   float: right;
   background-color: #f7f6f5;

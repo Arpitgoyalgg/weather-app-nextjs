@@ -1,4 +1,4 @@
-export default function TodayWeather() {
+export default function TodayWeather(props) {
   return (
     <>
       <div className="left-part">
@@ -11,16 +11,15 @@ export default function TodayWeather() {
           <img src="./sun.svg" />
           <div>
             <span style={{ fontSize: "80px", fontWeight: "lighter" }}>
-              12<sup className="left-degree"> &#8451;</sup>
+              {props.currentTemp} <sup className="left-degree"> &#8451;</sup>
             </span>
           </div>
           <span>
-            <strong>Monday,</strong>
+            <strong>{props.currentDay}, </strong>
           </span>
-          <span>16:00</span>
+          <span>{props.currentTime}</span>
           <hr />
-          <h4>Mostly Cloudy</h4>
-          <h4>Rain - 30%</h4>
+          <h4 className="capatalize">{props.currentLook}</h4>
           <img src="./sun.svg" className="city-image" />
         </div>
       </div>
