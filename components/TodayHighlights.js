@@ -14,7 +14,7 @@ export default function TodayHightlights(props) {
         <WindStatus windSpeed={props.windSpeed} />
         <SunriseSunset sunrise={props.sunrise} sunset={props.sunset} />
         <Humidity humidity={props.humidity} />
-        <Visibility />
+        <Visibility visibility={props.visibility} />
         <AirQuality />
       </div>
     </>

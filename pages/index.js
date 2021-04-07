@@ -53,6 +53,7 @@ export default function Home({ data }) {
   let windSpeed = Math.round(data.current.wind_speed * 3.6 * 100) / 100;
   let uvIndex = data.current.uvi;
   let humidity = data.current.humidity;
+  let visibility = data.current.visibility;
 
   return (
     <>
@@ -77,6 +78,7 @@ export default function Home({ data }) {
           sunrise={sunrise}
           sunset={sunset}
           humidity={humidity}
+          visibility={visibility}
         />
       </div>
     </>
