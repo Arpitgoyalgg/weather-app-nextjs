@@ -131,8 +131,25 @@ h4 {
   font-size: 15px;
 }
 
+@media only screen and (max-width: 775px) {
+  .left-part {
+    float: left;
+    background-color: white;
+    width: 30%;
+    /* border-radius: 40px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+    left: 10px;
+    position: fixed;
+  }
+  .left-part h4 {
+    margin: 10px;
+    font-size: 30px;
+  }
+}
+
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 1150px) {
+@media only screen and (min-width: 775px) {
   .left-part {
     float: left;
     background-color: white;
@@ -142,11 +159,6 @@ h4 {
     border-bottom-right-radius: 0px; */
     left: 50px;
     position: fixed;
-  }
-
-  .search-box {
-    margin: 5px;
-    padding: 10px;
   }
 }
 
@@ -161,10 +173,5 @@ h4 {
     border-bottom-right-radius: 0px; */
     position: fixed;
     left: 100px;
-  }
-
-  .search-box {
-    margin: 10px;
-    padding: 10px;
   }
 }
