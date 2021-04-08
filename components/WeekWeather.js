@@ -1,8 +1,6 @@
 import WeekCard from "./WeekCard";
 
 export default function WeekWeather(props) {
-  console.log(props);
-
   const listDays = [];
   let arr = props.props;
 
@@ -26,10 +24,10 @@ export default function WeekWeather(props) {
         dayMinTemp={day.temp.min}
         dayMaxTemp={day.temp.max}
         weekDay={currentDay}
+        icon={day.weather[0].icon}
       />
     );
   });
-  console.log(props.props);
 
   return (
     <>

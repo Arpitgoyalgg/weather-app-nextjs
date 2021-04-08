@@ -1,5 +1,4 @@
 export default function SunriseSunset(props) {
-  console.log(props);
   return (
     <>
       <div className="big-card">

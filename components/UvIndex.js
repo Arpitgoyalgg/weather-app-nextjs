@@ -2,7 +2,6 @@ import GaugeChart from "react-gauge-chart";
 
 export default function UvIndex(props) {
   let originalUV = props.uvIndex;
-  console.log(props.uvIndex);
   let uvIndex = props.uvIndex;
   if (uvIndex > 10) {
     uvIndex = 1;

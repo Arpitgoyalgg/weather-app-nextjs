@@ -16,9 +16,12 @@ html {
 
 .left-part h4 {
   margin: 10px;
-  font-size: 25px;
+  font-size: 50px;
 }
 
+.left-center {
+  margin-top: 30%;
+}
 .capatalize {
   text-transform: capitalize;
 }

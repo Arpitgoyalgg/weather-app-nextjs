@@ -1,7 +1,7 @@
 import Head from "next/head";
-import TodayHightlights from "../components/TodayHighlights";
-import TodayWeather from "../components/TodayWeather";
-import WeekWeather from "../components/WeekWeather";
+import TodayHightlights from "../../components/TodayHighlights";
+import TodayWeather from "../../components/TodayWeather";
+import WeekWeather from "../../components/WeekWeather";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -62,7 +62,7 @@ export default function Home({ data, airData }) {
   let humidity = data.current.humidity;
   let visibility = data.current.visibility;
   let aqi = airData.list[0].main.aqi;
-  let icon = data.current.weather.icon;
+  let currentIcon = data.current.weather[0].icon;
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function Home({ data, airData }) {
         currentDay={currentDay}
         currentTime={currentTime}
         currentLook={currentLook}
-        icon="50d"
+        icon={currentIcon}
       />
       {/* <button onClick={refreshData}>Refresh</button> */}
       <div className="right-part">
@@ -97,15 +97,18 @@ export default function Home({ data, airData }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
+
+  let latitude = context.params.lat;
+  let longitude = context.params.lon;
   const [data, airData] = await Promise.all([
     fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=26.922070&lon=75.778885&exclude=hourly,minutely&appid=1a45ac851c6f2ce4a4f16f5c997ba14d&units=metric`
+      `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&appid=1a45ac851c6f2ce4a4f16f5c997ba14d&units=metric`
     ).then((r) => r.json()),
     fetch(
-      `http://api.openweathermap.org/data/2.5/air_pollution?lat=26.922070&lon=75.778885&appid=1a45ac851c6f2ce4a4f16f5c997ba14d`
+      `http://api.openweathermap.org/data/2.5/air_pollution?lat=${latitude}&lon=${longitude}&appid=1a45ac851c6f2ce4a4f16f5c997ba14d`
     ).then((r) => r.json()),
   ]);
 
