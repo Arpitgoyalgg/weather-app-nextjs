@@ -1,8 +1,9 @@
 import GaugeChart from "react-gauge-chart";
 
 export default function UvIndex(props) {
-  console.log(props.UvIndex);
-  let uvIndex = props.UvIndex;
+  let originalUV = props.uvIndex;
+  console.log(props.uvIndex);
+  let uvIndex = props.uvIndex;
   if (uvIndex > 10) {
     uvIndex = 1;
   } else {
@@ -21,7 +22,7 @@ export default function UvIndex(props) {
           arcPadding={0.02}
           textColor="#000000"
           needleColor="#F89533"
-          formatTextValue={(value) => value + ""}
+          formatTextValue={(value) => originalUV}
         />
       </div>
     </>

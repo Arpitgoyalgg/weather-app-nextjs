@@ -55,10 +55,7 @@ export default function Home({ data, airData }) {
   let humidity = data.current.humidity;
   let visibility = data.current.visibility;
   let aqi = airData.list[0].main.aqi;
-
-  console.log("Air Data");
-  console.log(airData);
-  console.log("Air Data");
+  let icon = data.current.weather.icon;
 
   return (
     <>
@@ -74,6 +71,7 @@ export default function Home({ data, airData }) {
         currentDay={currentDay}
         currentTime={currentTime}
         currentLook={currentLook}
+        icon="50d"
       />
       <div className="right-part">
         <WeekWeather props={weekWeatherData} />

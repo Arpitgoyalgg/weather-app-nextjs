@@ -10,7 +10,7 @@ export default function TodayHightlights(props) {
     <>
       <h2>Today's Hightlights</h2>
       <div className="big-card-container">
-        <UvIndex UvIndex={props.uvIndex} />
+        <UvIndex uvIndex={props.uvIndex} />
         <WindStatus windSpeed={props.windSpeed} />
         <SunriseSunset sunrise={props.sunrise} sunset={props.sunset} />
         <Humidity humidity={props.humidity} />
