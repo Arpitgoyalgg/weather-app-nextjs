@@ -6,6 +6,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 export default function Home({ data, airData }) {
+  console.log(data);
+  console.log(airData);
   // const router = useRouter();
 
   // const refreshData = () => {
@@ -62,7 +64,7 @@ export default function Home({ data, airData }) {
   let humidity = data.current.humidity;
   let visibility = data.current.visibility;
   let aqi = airData.list[0].main.aqi;
-  let icon = data.current.weather.icon;
+  let currentIcon = data.current.weather[0].icon;
 
   return (
     <>
@@ -78,7 +80,7 @@ export default function Home({ data, airData }) {
         currentDay={currentDay}
         currentTime={currentTime}
         currentLook={currentLook}
-        icon="50d"
+        icon={currentIcon}
       />
       {/* <button onClick={refreshData}>Refresh</button> */}
       <div className="right-part">
