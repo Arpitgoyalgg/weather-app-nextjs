@@ -10,25 +10,32 @@ export default function Home({ data, airData }) {
   console.log(airData);
 
   const currentTemperature = data.current.temp;
-  let unix_timestamp_live = data.current.dt; // + data.timezone_offset;
-  let unix_timestamp_sunrise = data.current.sunrise;
-  let unix_timestamp_sunset = data.current.sunset;
+  let unix_timestamp_live = data.current.dt + data.timezone_offset; // time we want to SHOW
+  let unix_timestamp_sunrise = data.current.sunrise + data.timezone_offset;
+  let unix_timestamp_sunset = data.current.sunset + data.timezone_offset;
 
   var dateForLiveTime = new Date(unix_timestamp_live * 1000);
+
   var dateForSunrise = new Date(unix_timestamp_sunrise * 1000);
+
   var dateForSunset = new Date(unix_timestamp_sunset * 1000);
 
-  var hoursLive = dateForLiveTime.getHours();
+  console.log(dateForLiveTime.toUTCString());
+  var hoursLive = dateForLiveTime.getUTCHours();
 
-  var minutesLive = "0" + dateForLiveTime.getMinutes();
+  console.log(hoursLive);
 
-  var hoursSunrise = dateForSunrise.getHours();
+  var minutesLive = "0" + dateForLiveTime.getUTCMinutes();
 
-  var minutesSunrise = "0" + dateForSunrise.getMinutes();
+  console.log(minutesLive);
 
-  var hoursSunset = dateForSunset.getHours();
+  var hoursSunrise = dateForSunrise.getUTCHours();
 
-  var minutesSunset = "0" + dateForSunset.getMinutes();
+  var minutesSunrise = "0" + dateForSunrise.getUTCMinutes();
+
+  var hoursSunset = dateForSunset.getUTCHours();
+
+  var minutesSunset = "0" + dateForSunset.getUTCMinutes();
 
   var weekday = new Array(7);
   weekday[0] = "Sunday";
@@ -42,6 +49,7 @@ export default function Home({ data, airData }) {
   var currentDay = weekday[dateForLiveTime.getDay()];
 
   var currentTime = hoursLive + ":" + minutesLive.substr(-2);
+  // console.log(currentTime);
   var sunrise = hoursSunrise + ":" + minutesSunrise.substr(-2);
   var sunset = hoursSunset + ":" + minutesSunset.substr(-2);
 

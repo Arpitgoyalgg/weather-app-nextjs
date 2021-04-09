@@ -31,6 +31,7 @@ export default function TodayWeather(props) {
   return (
     <>
       <div className="left-part">
+        <h1 className="home-jaipur">Jaipur Weather</h1>
         <div className="left-center">
           {/* div to contain all the elements in the left part */}
 
