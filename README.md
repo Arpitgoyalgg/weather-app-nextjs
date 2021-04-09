@@ -43,4 +43,4 @@ If I want to know the weather of Chicago, I would search for Chicago's coordinat
 
 `https://weather-app-nextjs-arpitgoyalgg.vercel.app/41.8781/87.6298`
 
-where `41.8781` is the `latitude` and `87.6298` is the `longitude` of Chicago.
+where `41.8781` is the `latitude` and `-87.6298` is the `longitude` of Chicago.
