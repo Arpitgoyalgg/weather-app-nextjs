@@ -3,7 +3,11 @@ export default function Visibility(props) {
   return (
     <>
       <div className="big-card">
-        <h3>Visibility</h3>
+        <div className="visibility">
+          <h3>Visibility</h3>
+          <img src="/visibility.svg" />
+        </div>
+
         <h1>{visibility} km</h1>
       </div>
     </>

@@ -96,10 +96,6 @@ h4 {
   margin: 25px;
 }
 
-.big-card h1 {
-  margin: 35px;
-}
-
 .temp .min-temp {
   color: gray;
 }
@@ -131,6 +127,37 @@ h4 {
   font-size: 15px;
 }
 
+.sunrise-sunset img {
+  width: 20%;
+  margin: 12px;
+}
+
+.sunrise-sunset h3 {
+  margin: 5px;
+  text-align: center;
+}
+
+.sunrise {
+  display: flex;
+}
+
+.sunset {
+  display: flex;
+}
+
+.wind-status {
+  display: flex;
+}
+
+.wind-status img {
+  width: 20%;
+}
+
+.humidity {
+  display: flex;
+  text-align: center;
+}
+
 @media only screen and (max-width: 775px) {
   .left-part {
     float: left;
@@ -146,8 +173,25 @@ h4 {
     margin: 10px;
     font-size: 30px;
   }
+  .big-card h1 {
+    margin: 5px;
+  }
+
+  .humidity h1 {
+    margin-left: 20px;
+  }
+  .humidity img {
+    width: 20%;
+  }
 }
 
+.visibility {
+  display: flex;
+}
+
+.visibility img {
+  width: 20%;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (min-width: 775px) {
   .left-part {
@@ -159,6 +203,19 @@ h4 {
     border-bottom-right-radius: 0px; */
     left: 50px;
     position: fixed;
+  }
+
+  .big-card h1 {
+    margin: 35px;
+  }
+
+  .humidity h1 {
+    margin-left: 40px;
+    margin-right: 10px;
+  }
+  .humidity img {
+    /* margin-left: 20px; */
+    width: 20%;
   }
 }
 
@@ -173,5 +230,18 @@ h4 {
     border-bottom-right-radius: 0px; */
     position: fixed;
     left: 100px;
+  }
+
+  .big-card h1 {
+    margin: 35px;
+  }
+
+  .humidity h1 {
+    margin-left: 50px;
+    margin-right: 10px;
+  }
+  .humidity img {
+    margin-left: 0px;
+    width: 20%;
   }
 }
