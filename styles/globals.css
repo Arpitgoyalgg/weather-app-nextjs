@@ -16,7 +16,7 @@ html {
 
 .left-part h4 {
   margin: 10px;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 .left-center {
@@ -169,10 +169,7 @@ h4 {
     left: 10px;
     position: fixed;
   }
-  .left-part h4 {
-    margin: 10px;
-    font-size: 30px;
-  }
+
   .big-card h1 {
     margin: 5px;
   }
