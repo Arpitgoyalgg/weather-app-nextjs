@@ -2,7 +2,7 @@
 
 This is a web application made using [Next.js](https://nextjs.org/). Check [this](https://weather-app-nextjs-arpitgoyalgg.vercel.app/) link.
 
-It shows Weather of an area using its geographic `latitude` and `longitude`. 
+It shows Weather of an area using its geographic `latitude` and `longitude`.
 
 There are three main components driving this application
 
@@ -15,17 +15,20 @@ There are three main components driving this application
 ## Prerequisites - these should be installed on your local machine
 
 - Nodejs and npm
+- [OpenWeatherMap](https://openweathermap.org/) API key. Sign up for free on [OpenWeatherMap](https://openweathermap.org/) and get an API key. It takes less than a minute.
 
 ## Steps to run the project
+
 - Clone this repository in your local machine and `cd` into it.
 - Run `npm install` to install the dependencies required to run this project.
+- create a `.env.local` file in the root of the project and store a variable named `API` with the value of your `api key` of [OpenWeatherMap](https://openweathermap.org/).
 - Run `npm run dev` to start the development server.
 
 # How to look for the weather of a specific location
+
 To look for the weather of a specific location, you need the geographic `latitude` and `longitude` of that location. A simple web search would get that for you. By default, the [home page](https://weather-app-nextjs-arpitgoyalgg.vercel.app/) of the application shows weather for the following coordinates.
 
 `latitude` - 26.922070
-
 
 `longitude` - 75.778885
 
@@ -40,4 +43,4 @@ If I want to know the weather of Chicago, I would search for Chicago's coordinat
 
 `https://weather-app-nextjs-arpitgoyalgg.vercel.app/41.8781/87.6298`
 
-where `41.8781` is the `latitude` and  `87.6298` is the `longitude` of Chicago.
+where `41.8781` is the `latitude` and `87.6298` is the `longitude` of Chicago.
