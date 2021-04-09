@@ -4,7 +4,7 @@ export default function WeekWeather(props) {
   const listDays = [];
   let arr = props.props;
 
-  arr.map(function (day) {
+  arr.map(function (day, index) {
     let unix_timestamp = day.dt;
     var date = new Date(unix_timestamp * 1000);
     var weekday = new Array(7);
@@ -21,6 +21,7 @@ export default function WeekWeather(props) {
     var currentDay = dayName;
     return listDays.push(
       <WeekCard
+        key={index}
         dayMinTemp={day.temp.min}
         dayMaxTemp={day.temp.max}
         weekDay={currentDay}

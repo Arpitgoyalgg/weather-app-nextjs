@@ -97,7 +97,7 @@ export default function Home({ data, airData }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
   const [data, airData] = await Promise.all([
