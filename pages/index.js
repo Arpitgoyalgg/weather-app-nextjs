@@ -6,8 +6,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 export default function Home({ data, airData }) {
-  console.log(data);
-  console.log(airData);
+  // console.log(data);
+  // console.log(airData);
 
   const currentTemperature = data.current.temp;
   let unix_timestamp_live = data.current.dt + data.timezone_offset;
@@ -18,15 +18,15 @@ export default function Home({ data, airData }) {
   var dateForSunrise = new Date(unix_timestamp_sunrise * 1000);
   var dateForSunset = new Date(unix_timestamp_sunset * 1000);
 
-  console.log(dateForLiveTime.toUTCString());
+  // console.log(dateForLiveTime.toUTCString());
 
   var hoursLive = dateForLiveTime.getUTCHours();
 
-  console.log(hoursLive);
+  // console.log(hoursLive);
 
   var minutesLive = "0" + dateForLiveTime.getUTCMinutes();
 
-  console.log(minutesLive);
+  // console.log(minutesLive);
 
   var hoursSunrise = dateForSunrise.getUTCHours();
 
