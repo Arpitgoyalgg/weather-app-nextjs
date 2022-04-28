@@ -7,7 +7,7 @@ export default function WindStatus(props) {
           <img src="/wind-arrow.svg" />
         </div>
 
-        <h1 className="wind-h1">{props.windSpeed} km/hr</h1>
+        <h1 className="wind-h1">{Number((props.windSpeed).toFixed(1))} km/hr</h1>
       </div>
     </>
   );
